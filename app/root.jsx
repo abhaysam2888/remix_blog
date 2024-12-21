@@ -7,7 +7,10 @@ import {
 } from "@remix-run/react";
 
 import "./tailwind.css";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
 
+// Define links for fonts and other assets
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -21,16 +24,17 @@ export const links = () => [
   },
 ];
 
+// Layout component for consistent structure
 export function Layout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark bg-black">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-black">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -39,6 +43,11 @@ export function Layout({ children }) {
   );
 }
 
+// Main App component wrapped with Redux Provider
 export default function App() {
-  return <Outlet />;
+  return (
+        <Provider store={store}>
+          <Outlet />
+        </Provider>
+  );
 }
