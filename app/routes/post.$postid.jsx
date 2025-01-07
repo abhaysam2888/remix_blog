@@ -50,6 +50,14 @@ export const meta = ({ data }) => {
   ]
 }
 
+export const links = (data) => {
+  console.log(data);
+  
+  return [
+    { rel: "canonical", href: "https://www.rogblog.me" },
+  ];
+};
+
 // Loader function to fetch post data
 export async function loader({ params }) {
   const { postid } = params
@@ -69,7 +77,6 @@ export async function loader({ params }) {
 // Action function for deleting a post
 export default function Post() {
   const { article } = useLoaderData()
-  console.log(article)
 
   const userData = useSelector((state) => state.auth.userCred)
   console.log(userData)

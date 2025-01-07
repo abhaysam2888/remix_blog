@@ -20,24 +20,31 @@ export const meta = ({ data }) => {
   return [
     { title: `Featured Posts - ${postCount} Articles Available` },
     {
-      name: 'description',
+      name: "description",
       content: `Check out our ${postCount} latest posts and articles.`,
     },
+    { name: "og:title", content: `Featured Posts - ${postCount} Articles Available` },
     {
-      name: 'og:title',
-      content: `Featured Posts - ${postCount} Articles Available`,
+      name: "og:description",
+      content: "Browse our latest blog posts and stay updated with new content.",
     },
+    { name: "og:url", content: "https://www.rogblog.me" },
+    { name: "og:type", content: "website" },
+    { name: "og:site_name", content: "rogBlog" }, // Your site name
+    { name: "og:image", content: "https://www.rogblog.me/og-image.jpg" }, // Replace with your OG image URL
     {
-      name: 'og:description',
-      content:
-        'Browse our latest blog posts and stay updated with new content.',
+      name: "og:image:alt",
+      content: "Featured posts and articles on rogBlog.",
     },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'robots', content: 'index,follow' },
-    { name: 'canonical' ,content:"https://www.rogblog.me"},
-    {name: "og:url", content:"https://www.rogblog.me"},
-    {name: "og:type", content: "website"},
-  ]
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: `Featured Posts - ${postCount} Articles Available` },
+    {
+      name: "twitter:description",
+      content: "Browse our latest blog posts and stay updated with new content.",
+    },
+    { name: "twitter:image", content: "https://www.rogblog.me/og-image.jpg" }, // Same as OG image
+    { name: "robots", content: "index,follow" },
+  ];
 }
 
 export const links = () => {
