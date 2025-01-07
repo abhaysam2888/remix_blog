@@ -109,7 +109,7 @@ export default function Login() {
       <p className="text-red-600">{error}</p>
       <p className="text-green-600">{successMessage}</p>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        login to rogBlog.live
+        login to rogBlog
       </p>
       <Form className="my-8" onSubmit={submit}>
         <LabelInputContainer className="mb-4">

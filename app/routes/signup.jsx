@@ -137,7 +137,7 @@ export default function Signup() {
       ) : (
         <>
           <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-            Signup to rogBlog.live
+            Signup to rogBlog
           </p>
           {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
           <form className="my-8" onSubmit={handleSubmit}>
