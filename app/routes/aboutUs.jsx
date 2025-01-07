@@ -30,6 +30,9 @@ export const meta = ({ data }) => {
       name: 'robots',
       content: 'index, follow',
     },
+    {canonical: "https://www.rogblog.me/aboutUs"},
+    {"og:url": "https://www.rogblog.me/aboutUs"},
+    {"og:type": "website"},
   ]
 }
 

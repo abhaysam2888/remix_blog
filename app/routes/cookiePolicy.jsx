@@ -12,6 +12,18 @@ export const meta = () => {
         'Learn about the cookies we use to enhance your experience on rogBlog.',
     },
     { name: 'robots', content: 'index,follow' },
+    {canonical: "https://www.rogblog.me/cookiePolicy"},
+    {"og:url": "https://www.rogblog.me/cookiePolicy"},
+    {"og:type": "website"},
+    {
+      name: 'og:title',
+      content: 'Cookie Policy - rogBlog',
+    },
+    {
+      name: 'og:description',
+      content:
+        'Learn about the cookies we use to enhance your experience on rogBlog.',
+    },
   ]
 }
 

@@ -46,6 +46,7 @@ export const meta = ({ data }) => {
       content: service.getFilePreviews(article.image),
     },
     { name: 'robots', content: 'index,follow' },
+    {canonical: `https://www.rogblog.me/post/${article.$id}`}
   ]
 }
 

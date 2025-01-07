@@ -22,6 +22,9 @@ export const meta = () => {
         'Easily manage your posts and account details from your user profile page.',
     },
     { 'og:type': 'website' },
+    {canonical: "https://www.rogblog.me/UserProfile"},
+    {"og:url": "https://www.rogblog.me/UserProfile"},
+    {"og:type": "website"},
   ]
 }
 
