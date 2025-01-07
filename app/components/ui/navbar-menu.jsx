@@ -1,21 +1,16 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const transition = {
-  type: "spring",
+  type: 'spring',
   mass: 0.5,
   damping: 11.5,
   stiffness: 100,
   restDelta: 0.001,
   restSpeed: 0.001,
-};
+}
 
-export const MenuItem = ({
-  setActive,
-  active,
-  item,
-  children,
-}) => {
+export const MenuItem = ({ setActive, active, item, children }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
@@ -49,13 +44,10 @@ export const MenuItem = ({
         </motion.div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export const Menu = ({
-  setActive,
-  children,
-}) => {
+export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)}
@@ -63,6 +55,5 @@ export const Menu = ({
     >
       {children}
     </nav>
-  );
-};
-
+  )
+}

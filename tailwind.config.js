@@ -40,27 +40,24 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            maxWidth: 'none',
+            maxWidth: "none",
           },
         },
       }),
     },
   },
   variants: {
-    lineClamp: ['responsive'],
+    lineClamp: ["responsive"],
   },
-  plugins: [
-    addVariablesForColors,
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [addVariablesForColors, require("@tailwindcss/typography")],
 };
 
 function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
   );
- 
+
   addBase({
     ":root": newVars,
   });
