@@ -40,6 +40,12 @@ export const meta = ({ data }) => {
   ]
 }
 
+export const links = () => {
+  return [
+    { rel: "canonical", href: "https://www.rogblog.me" },
+  ];
+};
+
 // Fetch posts with the loader
 export let loader = async ({ request }) => {
   const url = new URL(request.url)
