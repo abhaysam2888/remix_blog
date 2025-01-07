@@ -31,10 +31,6 @@ export const meta = () => {
 
     { property: 'og:type', content: 'website' },
 
-    // { property: "og:url", content: "https://yourdomain.com/email-verification" },
-
-    // { property: "og:image", content: "https://yourdomain.com/images/verification-thumbnail.jpg" },
-
     { name: 'twitter:card', content: 'summary_large_image' },
 
     { name: 'twitter:title', content: 'Email Verification - rogBlog' },

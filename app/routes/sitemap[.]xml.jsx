@@ -1,4 +1,3 @@
-import React from 'react'
 import service from '../appwrite/config'
 
 async function getDynamicRoutes() {
@@ -16,7 +15,7 @@ async function getDynamicRoutes() {
 export const loader = async () => {
   const dynamicRoutes = await getDynamicRoutes()
 
-  const baseUrl = 'http://localhost:5173' // Replace with your actual domain
+  const baseUrl = 'https://www.rogblog.me' // Replace with your actual domain
 
   // Static routes
   const staticRoutes = [

@@ -1,6 +1,5 @@
 export const loader = () => {
-  const baseUrl = 'http://localhost:5173' // Replace with your actual domain
-
+  const baseUrl = 'https://www.rogblog.me'
   return new Response(
     `User-agent: *
   Allow: /

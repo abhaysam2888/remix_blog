@@ -32,7 +32,6 @@ export const meta = ({ data }) => {
       content:
         'Browse our latest blog posts and stay updated with new content.',
     },
-    { name: 'og:image', content: '/default-image.jpg' }, // Update with a dynamic image if available
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'robots', content: 'index,follow' },
   ]

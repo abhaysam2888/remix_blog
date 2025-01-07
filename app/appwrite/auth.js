@@ -31,7 +31,7 @@ export class AuthService {
   async verifyEmailLogin() {
     try {
       const verification = await this.account.createVerification(
-        'http://localhost:5173/SucessfullEmailVerification'
+        'https://www.rogblog.me/SucessfullEmailVerification'
       )
       return verification
     } catch (error) {
@@ -52,8 +52,8 @@ export class AuthService {
     try {
       const user = await this.account.createOAuth2Token(
         OAuthProvider.Google,
-        'http://localhost:5173/',
-        'http://localhost:5173/fail'
+        'https://www.rogblog.me/',
+        'https://www.rogblog.me/fail'
       )
       if (user) {
         return user
@@ -88,7 +88,7 @@ export class AuthService {
     try {
       return await this.account.createRecovery(
         email,
-        'http://localhost:5173/resetSucessfullPassword'
+        'https://www.rogblog.me/resetSucessfullPassword'
       )
     } catch (error) {
       console.error(error, 'appwrite error :: recoverPassword')

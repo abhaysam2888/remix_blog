@@ -28,14 +28,6 @@ export const meta = () => {
       property: 'og:type',
       content: 'website',
     },
-    // {
-    //   property: "og:url",
-    //   content: "https://yourdomain.com/successful-email-verification",
-    // },
-    // {
-    //   property: "og:image",
-    //   content: "https://yourdomain.com/images/email-verification-success.jpg",
-    // },
     {
       name: 'twitter:card',
       content: 'summary_large_image',
@@ -90,6 +82,7 @@ export default function SucessfullEmailVerification() {
     <>
       {isVerified ? (
         <div className="mt-10">
+          {verificationError && verificationError}
           <h2 className="text-2xl font-bold text-green-400 text-center">
             Verification Successful!
           </h2>
