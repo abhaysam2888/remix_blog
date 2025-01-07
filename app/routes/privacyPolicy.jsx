@@ -17,7 +17,7 @@ export const meta = () => {
       content: 'Learn how rogBlog handles your data responsibly and securely.',
     },
     { name: 'twitter:card', content: 'summary_large_image' },
-    {canonical: "https://www.rogblog.me/privacyPolicy"}
+    {name: 'canonical', content: "https://www.rogblog.me/privacyPolicy"}
   ]
 }
 

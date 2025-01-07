@@ -29,9 +29,9 @@ export const meta = () => {
       name: 'robots',
       content: 'index, follow',
     },
-    {canonical: "https://www.rogblog.me/contactUs"},
-    {"og:url": "https://www.rogblog.me/contactUs"},
-    {"og:type": "website"},
+    {name: 'canonical',  content:"https://www.rogblog.me/contactUs"},
+    {name: "og:url", content:"https://www.rogblog.me/contactUs"},
+    {name: "og:type", content:"website"},
   ]
 }
 

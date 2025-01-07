@@ -16,15 +16,15 @@ export const meta = () => {
         'View and manage your user profile, including posts and account details',
     },
     { keywords: 'User Profile, Manage Posts, Account Settings' },
-    { 'og:title': 'User Profile - Manage Your Posts' },
+    {  name:'og:title', content: 'User Profile - Manage Your Posts' },
     {
-      'og:description':
+       name:'og:description', content:
         'Easily manage your posts and account details from your user profile page.',
     },
-    { 'og:type': 'website' },
-    {canonical: "https://www.rogblog.me/UserProfile"},
-    {"og:url": "https://www.rogblog.me/UserProfile"},
-    {"og:type": "website"},
+    {  name:'og:type', content: 'website' },
+    { name:'canonical', content: "https://www.rogblog.me/UserProfile"},
+    { name:"og:url", content: "https://www.rogblog.me/UserProfile"},
+    { name:"og:type", content: "website"},
   ]
 }
 

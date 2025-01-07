@@ -22,7 +22,7 @@ export const meta = () => {
       name: 'og:description',
       content: 'Review the rules and policies for using our blogging platform.',
     },
-    {canonical: "https://www.rogblog.me/termsOfServices"}
+    { name: 'canonical', content: "https://www.rogblog.me/termsOfServices"}
   ]
 }
 

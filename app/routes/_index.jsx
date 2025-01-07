@@ -34,9 +34,9 @@ export const meta = ({ data }) => {
     },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'robots', content: 'index,follow' },
-    {canonical: "https://www.rogblog.me"},
-    {"og:url": "https://www.rogblog.me"},
-    {"og:type": "website"},
+    { name: 'canonical' ,content:"https://www.rogblog.me"},
+    {name: "og:url", content:"https://www.rogblog.me"},
+    {name: "og:type", content: "website"},
   ]
 }
 
