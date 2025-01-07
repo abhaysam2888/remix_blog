@@ -66,12 +66,15 @@ export default function Login() {
     const userLoginFun = async () => {
       try {
         const user = await authService.userLogin({ email, password })
+        console.log(user, "user login");
+        
         if (!user || user.error) {
           setError(user?.message || 'Login failed. Please try again.')
           return
         }
 
         const userData = await authService.getCurrentUser()
+        console.log(userData, "get current user data");
         if (userData) {
           dispatch(rawData(userData))
           if (userData.emailVerification === false) {

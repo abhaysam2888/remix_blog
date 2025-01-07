@@ -52,7 +52,7 @@ export class AuthService {
     try {
       const user = await this.account.createOAuth2Token(
         OAuthProvider.Google,
-        'https://www.rogblog.me/',
+        'https://www.rogblog.me',
         'https://www.rogblog.me/fail'
       )
       if (user) {
@@ -77,6 +77,8 @@ export class AuthService {
 
   async userLogin({ email, password }) {
     try {
+      console.log(email, password);
+      
       return await this.account.createEmailPasswordSession(email, password)
     } catch (error) {
       console.error(error, 'appwrite error :: userLogin')
