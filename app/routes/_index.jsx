@@ -134,6 +134,29 @@ export default function Index() {
     getUser()
   }, [userId, secret])
 
+  // for seo purpose
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.rogblog.me",
+    "name": "rogBlog",
+    "description": "Browse our latest blog posts and stay updated with new content.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "rogBlog",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.rogblog.me/favicon.ico", 
+      },
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.rogblog.me/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+
   return (
     <>
       <AllPost
@@ -144,6 +167,12 @@ export default function Index() {
       />
       <Footer />
       <GetCurrentUser />
+      {/* Inline JSON-LD for Schema.org structured data */}
+      {/* seo purpose */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </>
   )
 }
