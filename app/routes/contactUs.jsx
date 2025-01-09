@@ -29,9 +29,9 @@ export const meta = () => {
       name: 'robots',
       content: 'index, follow',
     },
-    {name: 'canonical',  content:"https://www.rogblog.me/contactUs"},
-    {name: "og:url", content:"https://www.rogblog.me/contactUs"},
-    {name: "og:type", content:"website"},
+    { name: 'canonical', content: 'https://www.rogblog.me/contactUs' },
+    { name: 'og:url', content: 'https://www.rogblog.me/contactUs' },
+    { name: 'og:type', content: 'website' },
   ]
 }
 
@@ -153,72 +153,6 @@ export default function Contact() {
           </p>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-8 border-t-[#1F2937] border-t-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            {/* Logo and Copyright */}
-            <div className="mb-8 md:mb-0">
-              <div className="flex items-center space-x-2">
-                <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded">
-                  rB
-                </div>
-                <span className="font-semibold text-lg">rogBlog Team</span>
-              </div>
-              <p className="text-sm mt-2">
-                © copyright rogBlog 2025. All rights reserved.
-              </p>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {/* Pages */}
-              <div>
-                <h3 className="text-sm font-bold mb-4">Pages</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="/aboutUs" className="hover:underline">
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/contactUs" className="hover:underline">
-                      Contact Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/clients" className="hover:underline">
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/pricing" className="hover:underline">
-                      Terms of Service
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Socials */}
-              <div>
-                <h3 className="text-sm font-bold mb-4">Socials</h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/abhay-verma-821699274/"
-                      target="_blank"
-                      className="hover:underline"
-                    >
-                      LinkedIn
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
