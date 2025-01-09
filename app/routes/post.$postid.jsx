@@ -130,10 +130,6 @@ export default function Post() {
             )}
           </div>
 
-          <h1 className="text-6xl w-full my-10 px-4 font-bold max-[714px]:text-5xl max-[588px]:text-4xl prose dark:prose-invert max-[461px]:text-3xl max-[461px]:my-5 max-[397px]:text-2xl">
-            {article.title}
-          </h1>
-
           <div>
             <img
               src={service.getFilePreviews(article.image)}
