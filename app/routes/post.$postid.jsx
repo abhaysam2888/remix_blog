@@ -46,17 +46,13 @@ export const meta = ({ data }) => {
       content: service.getFilePreviews(article.image),
     },
     { name: 'robots', content: 'index,follow' },
-    {name: 'canonical', content: `https://www.rogblog.me/post/${article.$id}`}
+    {
+      rel: 'canonical',
+      href: `https://www.rogblog.me/post/${article.$id}`,
+    },
   ]
 }
 
-export const links = (data) => {
-  console.log(data);
-  
-  return [
-    { rel: "canonical", href: "https://www.rogblog.me" },
-  ];
-};
 
 // Loader function to fetch post data
 export async function loader({ params }) {
@@ -79,8 +75,7 @@ export default function Post() {
   const { article } = useLoaderData()
 
   const userData = useSelector((state) => state.auth.userCred)
-  console.log(userData)
-  const navigate = useNavigate()
+  const navigate = useNavigate()  
 
   const delPost = async () => {
     await service.deletePost(article.$id).then((status) => {
