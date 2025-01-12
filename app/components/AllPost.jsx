@@ -70,7 +70,7 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
               posts.map((item) => (
                 <div key={item.$id}>
                   <Link to={`/post/${item.$id}`} key={item.title}>
-                    <div className="flex flex-col md:flex-row justify-between items-center">
+                    <div className="flex flex-col md:flex-row justify-between items-center max-md:border max-md:border-[#2f3e53]">
                       {/* Image */}
                       <div className="w-full md:w-[390px] md:h-[220px] flex justify-center">
                         <img
@@ -98,10 +98,10 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
 
                         {/* Title */}
                         <div>
-                          <h1 className="text-xl font-semibold text-white truncate">
+                          <h2 className="text-xl font-semibold text-white truncate">
                             {item.title ||
                               'Title Lorem ipsum, dolor sit amet consectetur adipisicing elit.'}
-                          </h1>
+                          </h2>
                         </div>
 
                         {/* Content */}
