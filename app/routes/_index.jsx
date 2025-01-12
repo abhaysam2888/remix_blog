@@ -18,40 +18,60 @@ export const meta = ({ data }) => {
   const postCount = data?.totalPosts || 0
 
   return [
-    { title: `Featured Posts - ${postCount} Articles Available` },
     {
-      name: "description",
-      content: `Check out our ${postCount} latest posts and articles.`,
+      title: `rogBlog - Discover ${postCount} Expert Blogging Articles and Resources`
     },
-    { name: "og:title", content: `Featured Posts - ${postCount} Articles Available` },
     {
-      name: "og:description",
-      content: "Browse our latest blog posts and stay updated with new content.",
+      name: 'description',
+      content: `Explore ${postCount} engaging and insightful blog posts on rogBlog. Stay informed with expert tips, trends, and resources for successful blogging and content creation.`
     },
-    { name: "og:url", content: "https://www.rogblog.me" },
-    { name: "og:type", content: "website" },
-    { name: "og:site_name", content: "rogBlog" }, // Your site name
-    { name: "og:image", content: "https://www.rogblog.me/og-image.jpg" }, // Replace with your OG image URL
     {
-      name: "og:image:alt",
-      content: "Featured posts and articles on rogBlog.",
+      name: 'og:title',
+      content: `rogBlog - Discover ${postCount} Expert Blogging Articles and Resources`
     },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: `Featured Posts - ${postCount} Articles Available` },
     {
-      name: "twitter:description",
-      content: "Browse our latest blog posts and stay updated with new content.",
+      name: 'og:description',
+      content: `Dive into ${postCount} of the best blogging articles on rogBlog. Get expert advice on content creation, blogging tips, and the latest trends in digital marketing and technology.`
     },
-    { name: "twitter:image", content: "https://www.rogblog.me/og-image.jpg" }, // Same as OG image
-    { name: "robots", content: "index,follow" },
-  ];
+    { 
+      name: 'og:url', 
+      content: 'https://www.rogblog.me' 
+    },
+    { 
+      name: 'og:type', 
+      content: 'website' 
+    },
+    { 
+      name: 'og:site_name', 
+      content: 'rogBlog' 
+    },
+    {
+      name: 'og:image:alt',
+      content: 'Featured blog posts and expert advice on blogging and digital marketing from rogBlog.',
+    },
+    { 
+      name: 'twitter:card', 
+      content: 'summary_large_image' 
+    },
+    {
+      name: 'twitter:title',
+      content: `rogBlog - Discover ${postCount} Expert Blogging Articles and Resources`
+    },
+    {
+      name: 'twitter:description',
+      content: `Read ${postCount} of the most insightful blog posts on rogBlog, covering everything from content creation tips to the latest trends in blogging and digital marketing.`
+    },
+    { 
+      name: 'robots', 
+      content: 'index,follow' 
+    },
+  ]
 }
 
+
 export const links = () => {
-  return [
-    { rel: "canonical", href: "https://www.rogblog.me" },
-  ];
-};
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me' }]
+}
 
 // Fetch posts with the loader
 export let loader = async ({ request }) => {
@@ -136,26 +156,26 @@ export default function Index() {
 
   // for seo purpose
   const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://www.rogblog.me",
-    "name": "rogBlog",
-    "description": "Browse our latest blog posts and stay updated with new content.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "rogBlog",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.rogblog.me/favicon.ico", 
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://www.rogblog.me',
+    name: 'rogBlog',
+    description:
+      'Browse our latest blog posts and stay updated with new content.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'rogBlog',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.rogblog.me/favicon.ico',
       },
     },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.rogblog.me/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://www.rogblog.me/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
     },
-  };
-
+  }
 
   return (
     <>
