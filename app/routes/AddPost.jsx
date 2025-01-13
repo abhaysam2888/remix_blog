@@ -77,15 +77,17 @@ export default function AddPost({ post }) {
                 {
                   text: `Please generate a well-structured article titled "${input}". The article should be formatted using only the necessary HTML tags (such as <h1>, <h2>, <p>, etc.). The article must not include any HTML boilerplate, head, body, or other unnecessary tags. The structure should include:
 
-- A single <h1> tag for the main title (this should be used only once in the article, at the beginning).
+- A single <h1> tag for the main title (this should be used only once in the article, at the beginning), and should be at least 20 Characters long.
 - Multiple <h2> tags for section titles (these should follow the main title and divide the content into logical sections).
 - Use <p> tags for paragraphs of text.
 - Each section should have a heading with a <h2> tag.
-- The article should include an introduction, several main sections, and a conclusion.
+- The article should include an introduction, several main sections, and a conclusion and include a links between content for taking reference form an external website example wikipedia, and other website. 
 - Avoid placing <h1> tags inside <p> or using any other heading tags inside paragraphs.
-- Ensure all content is informative, clear, and engaging while maintaining a formal tone.
+- Ensure all content is informative, clear, and engaging while maintaining a formal tone and ensure that there is no duplicate words.
 - Avoid extraneous elements like inline styles or JavaScript.
 - The article should be fully contained within these tags, using only valid and minimal HTML elements.
+
+- use all words from the page title and use within the pages content and Words from the H1 heading are used in the page content.
 
 The generated HTML should not include any unnecessary or mismatched tags that would cause rendering or hydration errors. Ensure a valid structure with a single <h1> and <h2> tags used appropriately.
 `,
