@@ -81,7 +81,7 @@ export default function AddPost({ post }) {
 - Multiple <h2> tags for section titles (these should follow the main title and divide the content into logical sections).
 - Use <p> tags for paragraphs of text.
 - Each section should have a heading with a <h2> tag.
-- The article should include an introduction, several main sections, and a conclusion and include a links between content for taking reference form an external website example wikipedia, and other website. 
+- The article should include an introduction, several main sections, and a conclusion and include a links between content for taking reference form an external website example wikipedia, and other website and make sure that external link is working. 
 - Avoid placing <h1> tags inside <p> or using any other heading tags inside paragraphs.
 - Ensure all content is informative, clear, and engaging while maintaining a formal tone and ensure that there is no duplicate words.
 - Avoid extraneous elements like inline styles or JavaScript.
