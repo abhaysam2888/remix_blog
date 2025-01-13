@@ -106,8 +106,9 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
 
                         {/* Content */}
                         <div>
+                        {/* for seo that ensure not more h1 tags */}
                           <span className="text-white line-clamp-3">
-                            {parse(item.content) ||
+                            {parse(item.content.replace(/<h1>/g, '<h2>').replace(/<\/h1>/g, '</h2>')) ||
                               'Some text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus.'}
                           </span>
                         </div>
