@@ -69,7 +69,6 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
             {posts &&
               posts.map((item) => (
                 <div key={item.$id}>
-                  <Link to={`/post/${item.$id}`} key={item.title}>
                     <div className="flex flex-col md:flex-row justify-between items-center max-md:border max-md:border-[#2f3e53]">
                       {/* Image */}
                       <div className="w-full md:w-[390px] md:h-[220px] flex justify-center">
@@ -108,13 +107,14 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
                         <div>
                         {/* for seo that ensure not more h1 tags */}
                           <span className="text-white line-clamp-3">
-                            {parse(item.content.replace(/<h1>/g, '<h2>').replace(/<\/h1>/g, '</h2>')) ||
+                            {parse(item.content) ||
                               'Some text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus.'}
                           </span>
                         </div>
 
                         {/* Read More Button */}
                         <div>
+                        <Link to={`/post/${item.$id}`} key={item.title}>
                           <Button className="inline-flex space-x-3 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#0000,55%,#000)] bg-[length:200%_100%] px-6 text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                             <span>Read more</span>
                             <span>
@@ -124,10 +124,10 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
                               />
                             </span>
                           </Button>
+                          </Link>
                         </div>
                       </div>
                     </div>
-                  </Link>
                 </div>
               ))}
           </div>

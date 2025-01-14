@@ -86,7 +86,23 @@ export default function Post() {
     })
   }
 
-  const isAuthor = article && userData ? article.userid === userData.$id : false
+  const isAuthor = article && userData ? article.userid === userData.$id : false;
+
+   // for seo purpose
+   const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "My First Blog: Describing My Experience",
+    "author": {
+      "@type": "Person",
+      "name": `${article.username}`
+    },
+    "description": "Creating my first blog was an exciting yet daunting experience...",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.rogblog.me/post/${article.$id}`
+    }
+  }
 
   return (
     <TracingBeam className="px-6 mt-8">
@@ -143,6 +159,10 @@ export default function Post() {
           </div>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </TracingBeam>
   )
 }

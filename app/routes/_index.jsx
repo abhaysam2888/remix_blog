@@ -14,24 +14,22 @@ import { login, logout } from '../store/authSlice'
 import Footer from '../components/Footer'
 import GetCurrentUser from '../components/GetCurrentUser'
 
-export const meta = ({ data }) => {
-  const postCount = data?.totalPosts || 0
-
+export const meta = () => {
   return [
     {
-      title: `rogBlog - Discover ${postCount} Expert Blogging Articles and Resources`
+      title: `rogBlog - Discover Expert Blogging Articles and Resources`
     },
     {
       name: 'description',
-      content: `Explore ${postCount} engaging and insightful blog posts on rogBlog. Stay informed with expert tips, trends, and resources for successful blogging and content creation.`
+      content: `Explore engaging and insightful blog posts on rogBlog. Stay informed with expert tips, trends, and resources for successful blogging and content creation.`
     },
     {
       name: 'og:title',
-      content: `rogBlog - Discover ${postCount} Expert Blogging Articles and Resources`
+      content: `rogBlog - Discover Expert Blogging Articles and Resources`
     },
     {
       name: 'og:description',
-      content: `Dive into ${postCount} of the best blogging articles on rogBlog. Get expert advice on content creation, blogging tips, and the latest trends in digital marketing and technology.`
+      content: `Dive into of the best blogging articles on rogBlog. Get expert advice on content creation, blogging tips, and the latest trends in digital marketing and technology.`
     },
     { 
       name: 'og:url', 
@@ -55,11 +53,11 @@ export const meta = ({ data }) => {
     },
     {
       name: 'twitter:title',
-      content: `rogBlog - Discover ${postCount} Expert Blogging Articles and Resources`
+      content: `rogBlog - Discover Expert Blogging Articles and Resources`
     },
     {
       name: 'twitter:description',
-      content: `Read ${postCount} of the most insightful blog posts on rogBlog, covering everything from content creation tips to the latest trends in blogging and digital marketing.`
+      content: `Read of the most insightful blog posts on rogBlog, covering everything from content creation tips to the latest trends in blogging and digital marketing.`
     },
     { 
       name: 'robots', 
