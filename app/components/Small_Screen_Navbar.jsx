@@ -25,14 +25,16 @@ export default function Small_Screen_Navbar() {
   return (
     <nav className="bg-white dark:bg-black sticky w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 mb-8">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to={'/'}>
+        
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
+          <Link to={'/'}>
             <img src="./favicon.ico" className="h-10" alt="codecorner Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-black">
               RogBlog
             </span>
+            </Link>
           </div>
-        </Link>
+        
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             onClick={() => setIsBarOpen(!isBarOpen)}
