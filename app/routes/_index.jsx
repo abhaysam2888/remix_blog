@@ -173,6 +173,33 @@ export default function Index() {
       target: 'https://www.rogblog.me/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
+    mainEntity: [
+      {
+        "@type": "WebPageElement",
+        "name": "Explore Blogs",
+        "url": "https://www.rogblog.me",
+      },
+      {
+        "@type": "WebPageElement",
+        "name": "Add post",
+        "url": "https://www.rogblog.me/addpost",
+      },
+      {
+        "@type": "WebPageElement",
+        "name": "Login",
+        "url": "https://www.rogblog.me/login",
+      },
+      {
+        "@type": "WebPageElement",
+        "name": "User Profile",
+        "url": "https://www.rogblog.me/UserProfile",
+      },
+      {
+        "@type": "WebPageElement",
+        "name": "User Profile",
+        "url": "https://www.rogblog.me/UserProfile",
+      },
+    ],
   }
 
   return (
