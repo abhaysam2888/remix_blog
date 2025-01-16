@@ -25,7 +25,6 @@ export const loader = async () => {
     { path: '/privacyPolicy', lastModified: '2025-01-03' },
     { path: '/termsOfServices', lastModified: '2025-01-03' },
     { path: '/cookiePolicy', lastModified: '2025-01-03' },
-    { path: '/UserProfile', lastModified: '2025-01-03' },
   ]
 
   // Combine static and dynamic routes
