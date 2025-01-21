@@ -43,11 +43,13 @@ const Full_Screen_Navbar = ({ className }) => {
         <Link to="/addpost">
           <MenuItem setActive={setActive} active={active} item="AddPost" />
         </Link>
-        {status ? (
-          <button onClick={handelClick}>
-            <MenuItem setActive={setActive} active={active} item="Logout" />
-          </button>
-        ) : (
+        <Link to="/addStory">
+          <MenuItem setActive={setActive} active={active} item="AddStory" />
+        </Link>
+        <Link to="/Stories">
+          <MenuItem setActive={setActive} active={active} item="Stories" />
+        </Link>
+        {status || (
           <div className="flex space-x-5">
             <Link to={'/login'}>
               <MenuItem setActive={setActive} active={active} item="Login" />

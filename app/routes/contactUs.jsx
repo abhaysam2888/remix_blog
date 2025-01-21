@@ -118,7 +118,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={state.submitting}
-              className="bg-blue-600 py-2 px-6 rounded text-white hover:bg-blue-700"
+              className="bg-blue-600 py-2 px-6 rounded text-white hover:bg-blue-700 rounded-lg"
             >
               Submit
             </button>

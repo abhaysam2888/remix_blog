@@ -41,6 +41,7 @@ export default function AddPost({ post }) {
       slug: post?.$id || '',
       content: post?.content || '',
       status: post?.status || 'active',
+      storyid: post?.storyid || 'none',
     },
   })
 
@@ -53,13 +54,29 @@ export default function AddPost({ post }) {
   const [cache, setCache] = useState({})
   const [loading, setloading] = useState(false)
   const [loaderState, setLoaderState] = useState(false)
+  const [stories, setStories] = useState([])
+  const [storyId, setStoryid] = useState(post?.storyid || 'none')
 
+  // copy logic
   const textRef = useRef(null)
-
   const copyClick = useCallback(() => {
     textRef.current.select()
     window.navigator.clipboard.writeText(responses)
   }, [responses])
+
+  // stories list fetching
+  useEffect(() => {
+    const getUserStory = async () => {
+      const userStoryies = await service.getUserAllStories(userData.$id)
+      if (userStoryies) {
+        const items = userStoryies.documents
+        setStories(items)
+      }
+    }
+    if (userData) {
+      getUserStory()
+    }
+  }, [userData])
 
   async function generateArticle() {
     setloading(true)
@@ -129,11 +146,30 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
     }
   }, [post, input])
 
+  // for ai title
   const handleInputChange = (event) => {
     const value = event.target.value
     setValue('title', value)
     setInput(value)
   }
+
+  // setting the story id on onChange
+  const handleStoryIdChange = (e) => {
+    const selectedValue = e.target.value
+    setValue('storyid', selectedValue)
+    setStoryid(selectedValue)
+  }
+
+  // for updating state
+  useEffect(() => {
+    setStoryid(post?.storyid || 'none')
+  }, [post?.storyid])
+
+  // select story id options
+  const selectOptions =
+    stories.length > 0
+      ? [{ title: 'none', $id: 'null' }, ...stories]
+      : [{ title: 'none', $id: 'null' }]
 
   const submit = async (data) => {
     setDisabel(true)
@@ -176,6 +212,7 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
           }
         }
       }
+      setDisabel(false)
     } catch (error) {
       console.log(error)
       setDisabel(false)
@@ -220,7 +257,10 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap mt-8">
       <div className="w-2/3 px-2 max-md:w-full">
-        <label className="inline-block mb-1 pl-1" htmlFor={'ai-gen2'}>
+        <label
+          className="inline-block mb-1 pl-1 text-white"
+          htmlFor={'ai-gen2'}
+        >
           Title :
         </label>
         <input
@@ -256,11 +296,27 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
         )}
         <Select
           options={['active', 'inactive']}
-          label="Status"
-          className="mb-4"
+          label="Status:"
+          className="mb-4 border border-gray-200 text-black focus:bg-gray-50"
           {...register('status', { required: true })}
         />
-        <label className="inline-block mb-1 pl-1" htmlFor={'ai-gen'}>
+
+        <Select
+          label="Select Story:"
+          options={selectOptions}
+          className="px-3 py-2 rounded-lg outline-none duration-200 w-full mb-4 border border-gray-200 text-black focus:bg-gray-50"
+          value={storyId}
+          {...register('storyid', { required: false })}
+          onChange={(e) => handleStoryIdChange(e)}
+        />
+        {/* suggestion for none option only */}
+        {storyId == 'none' && storyId.length <= 1 && (
+          <div>
+            <p className="text-red-500">Add story to Add Post on it.</p>
+          </div>
+        )}
+
+        <label className="inline-block mb-1 pl-1 text-white" htmlFor={'ai-gen'}>
           AI Suggestion :
         </label>
         <div
@@ -290,7 +346,7 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
           </div>
         </div>
         <div className="my-3">
-          <p>
+          <p className="text-red-500">
             {responses.length > 8
               ? 'copy the above text >> (Editor) view >> source code >> paste it >> save it'
               : ''}
@@ -305,7 +361,7 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
         <Button
           type="submit"
           bgColor={post ? 'bg-green-500' : undefined}
-          className={`w-full mt-5 ${disabel ? 'bg-red-500' : 'bg-blue-500'}`}
+          className={`w-full rounded-lg mt-5 ${disabel ? 'bg-red-500' : 'bg-blue-500'}`}
           disabled={disabel}
         >
           {post ? 'Update' : 'Submit'}

@@ -66,15 +66,13 @@ export default function Login() {
     const userLoginFun = async () => {
       try {
         const user = await authService.userLogin({ email, password })
-        console.log(user, "user login");
-        
+
         if (!user || user.error) {
           setError(user?.message || 'Login failed. Please try again.')
           return
         }
 
         const userData = await authService.getCurrentUser()
-        console.log(userData, "get current user data");
         if (userData) {
           dispatch(rawData(userData))
           if (userData.emailVerification === false) {
@@ -134,7 +132,7 @@ export default function Login() {
         </LabelInputContainer>
 
         <Button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] rounded-lg"
           type="submit"
         >
           Login &rarr;
@@ -145,7 +143,7 @@ export default function Login() {
 
         <div className="flex flex-col space-y-4">
           <Button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)] rounded-lg"
             type="submit"
             onClick={handleGoogleLogin}
           >

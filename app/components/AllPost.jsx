@@ -51,7 +51,7 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
 
       <div className="w-full h-full">
         <div className="mx-auto max-w-6xl p-5">
-          {/* Post Type */}
+          {/* heading */}
           <div className="w-full py-5 px-5 border-b mb-5 border-white/[0.6] flex justify-between items-center">
             <h1 className="text-3xl text-white">Featured Post</h1>
             {/* user profile route */}
@@ -69,51 +69,55 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
             {posts &&
               posts.map((item) => (
                 <div key={item.$id}>
-                    <div className="flex flex-col md:flex-row justify-between items-center max-md:border max-md:border-[#2f3e53]">
-                      {/* Image */}
-                      <div className="w-full md:w-[390px] md:h-[220px] flex justify-center">
-                        <img
-                          src={item.imageUrl}
-                          alt={item.title}
-                          className="w-full h-[220px] object-cover md:w-[390px] max-md:h-[320px]"
-                          loading="lazy"
-                        />
+                  <div className="flex flex-col md:flex-row justify-between items-center max-md:border max-md:border-[#2f3e53]">
+                    {/* Image */}
+                    <div className="w-full md:w-[390px] md:h-[220px] flex justify-center">
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full h-[220px] object-cover md:w-[390px] max-md:h-[320px]"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="w-full md:max-w-2xl space-y-4 px-4 py-5">
+                      {/* Author Info */}
+                      <div className="flex items-center text-gray-300 space-x-4">
+                        <p className="text-sm flex items-center">
+                          <FontAwesomeIcon icon={faUser} className="w-3" />
+                          <span className="ml-2">
+                            {item.username || 'username'}
+                          </span>
+                        </p>
+                        <p className="text-sm">
+                          {`${new Date(item.$createdAt).getDate()}-${new Date(item.$createdAt).getMonth() + 1}-${new Date(item.$createdAt).getFullYear()}`}
+                        </p>
+                      </div>
+
+                      {/* Title */}
+                      <div>
+                        <h2 className="text-xl font-semibold text-white truncate">
+                          {item.title ||
+                            'Title Lorem ipsum, dolor sit amet consectetur adipisicing elit.'}
+                        </h2>
                       </div>
 
                       {/* Content */}
-                      <div className="w-full md:max-w-2xl space-y-4 px-4 py-5">
-                        {/* Author Info */}
-                        <div className="flex items-center text-gray-300 space-x-4">
-                          <p className="text-sm flex items-center">
-                            <FontAwesomeIcon icon={faUser} className="w-3" />
-                            <span className="ml-2">
-                              {item.username || 'username'}
-                            </span>
-                          </p>
-                          <p className="text-sm">
-                            {`${new Date(item.$createdAt).getDate()}-${new Date(item.$createdAt).getMonth() + 1}-${new Date(item.$createdAt).getFullYear()}`}
-                          </p>
-                        </div>
-
-                        {/* Title */}
-                        <div>
-                          <h2 className="text-xl font-semibold text-white truncate">
-                            {item.title ||
-                              'Title Lorem ipsum, dolor sit amet consectetur adipisicing elit.'}
-                          </h2>
-                        </div>
-
-                        {/* Content */}
-                        <div>
+                      <div>
                         {/* for seo that ensure not more h1 tags */}
-                          <span className="text-white line-clamp-3">
-                            {parse(item.content.replace(/<h1>/g, '<h2>').replace(/<\/h1>/g, '</h2>')) ||
-                              'Some text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus.'}
-                          </span>
-                        </div>
+                        <span className="text-white line-clamp-3">
+                          {parse(
+                            item.content
+                              .replace(/<h1>/g, '<h2>')
+                              .replace(/<\/h1>/g, '</h2>')
+                          ) ||
+                            'Some text Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellendus.'}
+                        </span>
+                      </div>
 
-                        {/* Read More Button */}
-                        <div>
+                      {/* Read More Button */}
+                      <div>
                         <Link to={`/post/${item.$id}`} key={item.title}>
                           <Button className="inline-flex space-x-3 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#0000,55%,#000)] bg-[length:200%_100%] px-6 text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                             <span>Read more</span>
@@ -124,10 +128,10 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
                               />
                             </span>
                           </Button>
-                          </Link>
-                        </div>
+                        </Link>
                       </div>
                     </div>
+                  </div>
                 </div>
               ))}
           </div>
@@ -138,7 +142,10 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
           <div className="pagination flex space-x-2 items-center">
             {/* Previous Button */}
             {prevOffset >= 0 && (
-              <Button onClick={() => handlePageChange(prevOffset)}>
+              <Button
+                className="rounded-lg"
+                onClick={() => handlePageChange(prevOffset)}
+              >
                 Previous
               </Button>
             )}
@@ -148,7 +155,12 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
             </span>
             {/* Next Button */}
             {nextOffset < totalPosts && (
-              <Button onClick={() => handlePageChange(nextOffset)}>Next</Button>
+              <Button
+                className="rounded-lg"
+                onClick={() => handlePageChange(nextOffset)}
+              >
+                Next
+              </Button>
             )}
           </div>
         </div>

@@ -21,6 +21,7 @@ export class Service {
     status,
     image,
     username,
+    storyid,
   }) {
     try {
       return await this.databases.createDocument(
@@ -35,6 +36,7 @@ export class Service {
           status,
           image,
           username,
+          storyid,
         }
       )
     } catch (error) {
@@ -43,7 +45,28 @@ export class Service {
     }
   }
 
-  async updatePost(slug, { title, content, email, status, image }) {
+  async createStory({ title, userid, email, image, username, slug, status }) {
+    try {
+      return await this.databases.createDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        slug,
+        {
+          title,
+          userid,
+          email,
+          image,
+          username,
+          status,
+        }
+      )
+    } catch (error) {
+      console.log(`error in createStory ${error}`)
+      alert(error)
+    }
+  }
+
+  async updatePost(slug, { title, content, email, status, image, storyid }) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
@@ -55,10 +78,28 @@ export class Service {
           email,
           status,
           image,
+          storyid,
         }
       )
     } catch (error) {
       console.log(`error in update post ${error}`)
+    }
+  }
+
+  async updateStory(slug, { title, image, status }) {
+    try {
+      return await this.databases.updateDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        slug,
+        {
+          title,
+          image,
+          status,
+        }
+      )
+    } catch (error) {
+      console.log(`error in update story ${error}`)
     }
   }
 
@@ -76,6 +117,20 @@ export class Service {
     }
   }
 
+  async deleteStory(slug) {
+    try {
+      await this.databases.deleteDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        slug
+      )
+      return true
+    } catch (error) {
+      console.log(`error in delete story ${error}`)
+      return false
+    }
+  }
+
   async getPost(slug) {
     try {
       return await this.databases.getDocument(
@@ -89,6 +144,22 @@ export class Service {
     }
   }
 
+  async getStory(slug) {
+    try {
+      return await this.databases.getDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        slug
+      )
+    } catch (error) {
+      console.log(
+        `Appwrite service :: getStory :: error in ${slug} fileId`,
+        error
+      )
+      return false
+    }
+  }
+
   async getPosts(limitQuery, offsetQuery) {
     try {
       return await this.databases.listDocuments(
@@ -98,6 +169,20 @@ export class Service {
       )
     } catch (error) {
       console.log('Appwrite serive :: getPosts :: error', error)
+
+      return false
+    }
+  }
+
+  async getStories(limitQuery, offsetQuery) {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        [Query.equal('status', 'active'), limitQuery, offsetQuery]
+      )
+    } catch (error) {
+      console.log('Appwrite serive :: getStories :: error', error)
 
       return false
     }
@@ -131,6 +216,34 @@ export class Service {
     }
   }
 
+  async getUserAllStories(userid) {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        [Query.equal('userid', `${userid}`)]
+      )
+    } catch (error) {
+      console.log('Appwrite serive :: getUserAllStories :: error', error)
+
+      return false
+    }
+  }
+
+  async getUserAllStoriesPost(storyid) {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        [Query.equal('storyid', `${storyid}`)]
+      )
+    } catch (error) {
+      console.log('Appwrite serive :: getUserAllStoriesPost :: error', error)
+
+      return false
+    }
+  }
+
   async uploadFile(file) {
     try {
       return await this.bucket.createFile(
@@ -154,8 +267,29 @@ export class Service {
     }
   }
 
-  getFilePreviews(fileId, userId) {
-    return this.bucket.getFilePreview(conf.appwriteBucketId, fileId, userId)
+  getFilePreviews(fileId, height, width, quality) {
+    try {
+      return this.bucket.getFilePreview(
+        conf.appwriteBucketId,
+        fileId,
+        width || 0,
+        height || 0,
+        'center', // crop center
+        quality || '70', // slight compression
+        0, // border width
+        '000', // border color
+        0, // border radius
+        1, // full opacity
+        0, // no rotation
+        'FFFFFF', // background color
+        'webp' // output jpg format
+      )
+    } catch (error) {
+      console.log(
+        error,
+        `Appwrite error || getFilePreviews in ${fileId} fileId`
+      )
+    }
   }
 }
 

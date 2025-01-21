@@ -17,55 +17,55 @@ import GetCurrentUser from '../components/GetCurrentUser'
 export const meta = () => {
   return [
     {
-      title: `rogBlog - Discover Expert Blogging Articles and Resources`
+      title: `rogBlog - Discover Expert Blogging Articles and Resources`,
     },
     {
       name: 'description',
-      content: `Explore engaging and insightful blog posts on rogBlog. Stay informed with expert tips, trends, and resources for successful blogging and content creation.`
+      content: `Explore engaging and insightful blog posts on rogBlog. Stay informed with expert tips, trends, and resources for successful blogging and content creation.`,
     },
     {
       name: 'og:title',
-      content: `rogBlog - Discover Expert Blogging Articles and Resources`
+      content: `rogBlog - Discover Expert Blogging Articles and Resources`,
     },
     {
       name: 'og:description',
-      content: `Dive into of the best blogging articles on rogBlog. Get expert advice on content creation, blogging tips, and the latest trends in digital marketing and technology.`
+      content: `Dive into of the best blogging articles on rogBlog. Get expert advice on content creation, blogging tips, and the latest trends in digital marketing and technology.`,
     },
-    { 
-      name: 'og:url', 
-      content: 'https://www.rogblog.me' 
+    {
+      name: 'og:url',
+      content: 'https://www.rogblog.me',
     },
-    { 
-      name: 'og:type', 
-      content: 'website' 
+    {
+      name: 'og:type',
+      content: 'website',
     },
-    { 
-      name: 'og:site_name', 
-      content: 'rogBlog' 
+    {
+      name: 'og:site_name',
+      content: 'rogBlog',
     },
     {
       name: 'og:image:alt',
-      content: 'Featured blog posts and expert advice on blogging and digital marketing from rogBlog.',
+      content:
+        'Featured blog posts and expert advice on blogging and digital marketing from rogBlog.',
     },
-    { 
-      name: 'twitter:card', 
-      content: 'summary_large_image' 
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image',
     },
     {
       name: 'twitter:title',
-      content: `rogBlog - Discover Expert Blogging Articles and Resources`
+      content: `rogBlog - Discover Expert Blogging Articles and Resources`,
     },
     {
       name: 'twitter:description',
-      content: `Read of the most insightful blog posts on rogBlog, covering everything from content creation tips to the latest trends in blogging and digital marketing.`
+      content: `Read of the most insightful blog posts on rogBlog, covering everything from content creation tips to the latest trends in blogging and digital marketing.`,
     },
-    { 
-      name: 'robots', 
-      content: 'index,follow' 
+    {
+      name: 'robots',
+      content: 'index,follow',
     },
   ]
 }
-
 
 export const links = () => {
   return [{ rel: 'canonical', href: 'https://www.rogblog.me' }]
@@ -175,29 +175,29 @@ export default function Index() {
     },
     mainEntity: [
       {
-        "@type": "WebPageElement",
-        "name": "Explore Blogs",
-        "url": "https://www.rogblog.me",
+        '@type': 'WebPageElement',
+        name: 'Explore Blogs',
+        url: 'https://www.rogblog.me',
       },
       {
-        "@type": "WebPageElement",
-        "name": "Add post",
-        "url": "https://www.rogblog.me/addpost",
+        '@type': 'WebPageElement',
+        name: 'Add post',
+        url: 'https://www.rogblog.me/addpost',
       },
       {
-        "@type": "WebPageElement",
-        "name": "Login",
-        "url": "https://www.rogblog.me/login",
+        '@type': 'WebPageElement',
+        name: 'Login',
+        url: 'https://www.rogblog.me/login',
       },
       {
-        "@type": "WebPageElement",
-        "name": "User Profile",
-        "url": "https://www.rogblog.me/UserProfile",
+        '@type': 'WebPageElement',
+        name: 'User Profile',
+        url: 'https://www.rogblog.me/UserProfile',
       },
       {
-        "@type": "WebPageElement",
-        "name": "User Profile",
-        "url": "https://www.rogblog.me/UserProfile",
+        '@type': 'WebPageElement',
+        name: 'User Profile',
+        url: 'https://www.rogblog.me/UserProfile',
       },
     ],
   }

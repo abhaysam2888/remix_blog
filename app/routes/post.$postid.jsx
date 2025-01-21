@@ -53,7 +53,6 @@ export const meta = ({ data }) => {
   ]
 }
 
-
 // Loader function to fetch post data
 export async function loader({ params }) {
   const { postid } = params
@@ -75,7 +74,7 @@ export default function Post() {
   const { article } = useLoaderData()
 
   const userData = useSelector((state) => state.auth.userCred)
-  const navigate = useNavigate()  
+  const navigate = useNavigate()
 
   const delPost = async () => {
     await service.deletePost(article.$id).then((status) => {
@@ -86,22 +85,23 @@ export default function Post() {
     })
   }
 
-  const isAuthor = article && userData ? article.userid === userData.$id : false;
+  const isAuthor = article && userData ? article.userid === userData.$id : false
 
-   // for seo purpose
-   const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "My First Blog: Describing My Experience",
-    "author": {
-      "@type": "Person",
-      "name": `${article.username}`
+  // for seo purpose
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: 'My First Blog: Describing My Experience',
+    author: {
+      '@type': 'Person',
+      name: `${article.username}`,
     },
-    "description": "Creating my first blog was an exciting yet daunting experience...",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://www.rogblog.me/post/${article.$id}`
-    }
+    description:
+      'Creating my first blog was an exciting yet daunting experience...',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.rogblog.me/post/${article.$id}`,
+    },
   }
 
   return (

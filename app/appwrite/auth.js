@@ -13,11 +13,12 @@ export class AuthService {
     const id = ID.unique()
     try {
       const userAccount = await this.account.create(id, email, password, name)
-      console.log(userAccount, 'user account create')
 
       if (userAccount) {
         const user = await this.userLogin({ email, password })
-        console.log(user, 'login')
+        const userPref = await this.account.updatePrefs({
+          profileStory: true,
+        })
 
         return user
       } else {
@@ -77,8 +78,6 @@ export class AuthService {
 
   async userLogin({ email, password }) {
     try {
-      console.log(email, password);
-      
       return await this.account.createEmailPasswordSession(email, password)
     } catch (error) {
       console.error(error, 'appwrite error :: userLogin')
@@ -124,6 +123,16 @@ export class AuthService {
       return currentUser
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  async updatePrefs() {
+    try {
+      return await this.account.updatePrefs({
+        profileStory: false,
+      })
+    } catch (error) {
+      console.log(`Appwrite error in updatePrefs || ${error}`)
     }
   }
 
