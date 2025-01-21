@@ -119,8 +119,6 @@ export default function Index() {
   const { posts, totalPosts, offset, postsPerPage } = useLoaderData()
 
   const dispatch = useDispatch()
-  console.log(conf.appwriteStoriesCollectionId);
-  
 
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
