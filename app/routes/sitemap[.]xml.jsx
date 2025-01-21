@@ -3,11 +3,14 @@ import service from '../appwrite/config'
 async function getDynamicRoutes() {
   // Replace with actual database/API call for dynamic routes
   const posts = await service.getAllPosts()
+  
 
   return posts.documents.map((item) => {
+    const updatedAt = new Date(item.$updatedAt);
+    const formattedDate = `${updatedAt.getFullYear()}-${String(updatedAt.getMonth() + 1).padStart(2, '0')}-${String(updatedAt.getDate()).padStart(2, '0')}`;
     return {
       path: `/post/${item.$id}`,
-      lastModified: `${new Date(item.$updatedAt).getDate()}-${new Date(item.$createdAt).getMonth() + 1}-${new Date(item.$createdAt).getFullYear()}`,
+      lastModified: formattedDate,
     }
   })
 }
@@ -15,7 +18,7 @@ async function getDynamicRoutes() {
 export const loader = async () => {
   const dynamicRoutes = await getDynamicRoutes()
 
-  const baseUrl = 'https://www.rogblog.me' // Replace with your actual domain
+  const baseUrl = 'https://www.rogblog.me'
 
   // Static routes
   const staticRoutes = [
@@ -38,7 +41,7 @@ export const loader = async () => {
         (route) => `
       <url>
         <loc>${baseUrl}${route.path}</loc>
-        <lastmod>${new Date(route.lastModified).toISOString()}</lastmod>
+        <lastmod>${route.lastModified}</lastmod>
       </url>
     `
       )
