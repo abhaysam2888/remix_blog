@@ -3,6 +3,53 @@ import service from '../appwrite/config'
 import { json, useLoaderData } from '@remix-run/react'
 import parse from 'html-react-parser'
 
+export const meta = ({ data }) => {
+  const { storie } = data
+
+  return [
+    { title: `${storie.title}` },
+    {
+      name: 'description',
+      content: `Explore the insights and perspectives shared by ${storie.username}. Stay informed and updated.`,
+    },
+    {
+      name: 'og:title',
+      content: storie.title,
+    },
+    {
+      name: 'og:description',
+      content:
+        "Discover detailed insights about React's ecosystem and its role in modern web development.",
+    },
+    {
+      name: 'og:image',
+      content: service.getFilePreviews(storie.image),
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    },
+    {
+      name: 'twitter:title',
+      content: storie.title,
+    },
+    {
+      name: 'twitter:description',
+      content:
+        "Check out this engaging storie about React's unique position as a library and framework.",
+    },
+    {
+      name: 'twitter:image',
+      content: service.getFilePreviews(storie.image),
+    },
+    { name: 'robots', content: 'index,follow' },
+    {
+      rel: 'canonical',
+      href: `https://www.rogblog.me/post/${storie.$id}`,
+    },
+  ]
+}
+
 export async function loader({ params }) {
   const { storyid } = params
 

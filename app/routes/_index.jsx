@@ -13,7 +13,6 @@ import { useDispatch } from 'react-redux'
 import { login, logout } from '../store/authSlice'
 import Footer from '../components/Footer'
 import GetCurrentUser from '../components/GetCurrentUser'
-import conf from '../conf/conf'
 
 export const meta = () => {
   return [

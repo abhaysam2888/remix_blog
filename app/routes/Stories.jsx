@@ -49,6 +49,32 @@ export let loader = async ({ request }) => {
   }
 }
 
+export const meta = () => {
+  const capitalizedTitle = 'Discover Expert Blogging Stories and Resources'
+  const storyUrl = `https://www.rogblog.me/stories/`
+
+  return [
+    { title: `${capitalizedTitle} - rogBlog` },
+    { name: 'description', content: `Read "${capitalizedTitle}" on rogBlog.` },
+    { name: 'og:title', content: `${capitalizedTitle} - rogBlog` },
+    {
+      name: 'og:description',
+      content: `Read "${capitalizedTitle}" on rogBlog.`,
+    },
+    { name: 'og:url', content: storyUrl },
+    { name: 'og:type', content: 'article' },
+    { name: 'og:site_name', content: 'rogBlog' },
+    { name: 'og:image:alt', content: `Image for ${capitalizedTitle}` },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: `${capitalizedTitle} - rogBlog` },
+    {
+      name: 'twitter:description',
+      content: `Read "${capitalizedTitle}" on rogBlog.`,
+    },
+    { name: 'robots', content: 'index,follow' },
+  ]
+}
+
 export default function Stories() {
   const { offset, postsPerPage, totalStories, stories } = useLoaderData()
   const userData = useSelector((state) => state.auth.userCred)

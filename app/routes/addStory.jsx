@@ -7,11 +7,30 @@ import { ID } from 'appwrite'
 import { useSelector } from 'react-redux'
 import Select from '../components/Select'
 
-export default function CreateStory({story}) {
-  const [title, setTitle] = useState(story && story.title || '')
+export const meta = () => {
+  const title = 'Add a New Story'
+  const description = `Create Stories with a detailed form`
+
+  return [
+    { title },
+    { name: 'description', content: description },
+    { name: 'og:title', content: title },
+    {
+      name: 'og:description',
+      content: 'Create Stories with a detailed form',
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'robots', content: 'index,follow' },
+  ]
+}
+
+export default function CreateStory({ story }) {
+  const [title, setTitle] = useState((story && story.title) || '')
   const [image, setImage] = useState(null)
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('active' || story && story.status)
+  const [status, setStatus] = useState('active' || (story && story.status))
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [updateSuccess, setUpdateSuccess] = useState(false)
@@ -19,15 +38,14 @@ export default function CreateStory({story}) {
   const navigate = useNavigate()
 
   const validateForm = () => {
-
     const newErrors = {}
     if (!title.trim()) {
       newErrors.title = 'Title is required.'
-      setLoading(false);
+      setLoading(false)
     }
     if (!image && !story) {
       newErrors.image = 'Image is required.'
-      setLoading(false);
+      setLoading(false)
     }
     return newErrors
   }
@@ -50,26 +68,25 @@ export default function CreateStory({story}) {
       formData.append('image', image)
 
       if (story) {
-
         if (userData) {
-          let fileId = null;
+          let fileId = null
           if (image) {
-            const uploadImage = await service.uploadFile(image);
-            fileId = uploadImage.$id;
+            const uploadImage = await service.uploadFile(image)
+            fileId = uploadImage.$id
             if (uploadImage) {
-              const deleteExistingFile = await service.deleteFile(story?.image);
-            };
-          }else{
-              fileId = story?.image;
+              const deleteExistingFile = await service.deleteFile(story?.image)
+            }
+          } else {
+            fileId = story?.image
           }
-          
+
           if (fileId != null) {
             const response = await service.updateStory(story.$id, {
               title,
               image: fileId,
               status,
             })
-  
+
             if (response) {
               setUpdateSuccess(true)
               setTimeout(() => {
@@ -82,12 +99,11 @@ export default function CreateStory({story}) {
           }
           setLoading(false)
         }
-        
-      }else{
+      } else {
         if (userData) {
           const uploadImage = await service.uploadFile(image)
           const fileId = uploadImage.$id
-  
+
           if (uploadImage) {
             const response = await service.createStory({
               title,
@@ -98,7 +114,7 @@ export default function CreateStory({story}) {
               username: userData.name,
               status,
             })
-  
+
             if (response) {
               setSuccess(true)
               setTimeout(() => {
@@ -147,7 +163,8 @@ export default function CreateStory({story}) {
     return (
       <div className="mt-10">
         <h2 className="text-2xl font-bold text-green-400 text-center">
-          congratulations you have update a existing story successfully 🎉🎉🎉🎉🎉🎉
+          congratulations you have update a existing story successfully
+          🎉🎉🎉🎉🎉🎉
         </h2>
         <p className="mt-4 text-gray-300 text-center">
           Now you can add further post on that story

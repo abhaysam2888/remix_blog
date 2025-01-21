@@ -56,6 +56,7 @@ export default function AddPost({ post }) {
   const [loaderState, setLoaderState] = useState(false)
   const [stories, setStories] = useState([])
   const [storyId, setStoryid] = useState(post?.storyid || 'none')
+  const [selectstatus, setSelectstatus] = useState(post?.status || 'active')
 
   // copy logic
   const textRef = useRef(null)
@@ -158,6 +159,12 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
     const selectedValue = e.target.value
     setValue('storyid', selectedValue)
     setStoryid(selectedValue)
+  }
+
+  const handleStatusChange = (e) => {
+    const selectedValue = e.target.value
+    setValue('status', selectedValue)
+    setSelectstatus(selectedValue)
   }
 
   // for updating state
@@ -297,8 +304,10 @@ The generated HTML should not include any unnecessary or mismatched tags that wo
         <Select
           options={['active', 'inactive']}
           label="Status:"
+          value={selectstatus}
           className="mb-4 border border-gray-200 text-black focus:bg-gray-50"
           {...register('status', { required: true })}
+          onChange={(e) => handleStatusChange(e)}
         />
 
         <Select

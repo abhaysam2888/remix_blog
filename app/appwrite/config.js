@@ -202,6 +202,20 @@ export class Service {
     }
   }
 
+  async getAllStories() {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteStoriesCollectionId,
+        [Query.equal('status', 'active')]
+      )
+    } catch (error) {
+      console.log('Appwrite serive :: getAllStories :: error', error)
+
+      return false
+    }
+  }
+
   async getUserAllPosts(userid) {
     try {
       return await this.databases.listDocuments(

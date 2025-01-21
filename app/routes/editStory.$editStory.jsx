@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 import { json, useLoaderData, useNavigate } from '@remix-run/react'
-import { useSelector } from 'react-redux'
-import useArticleFetch from '../customHook/useArticleFetch'
 import CreateStory from './addStory'
 import service from '../appwrite/config'
 
