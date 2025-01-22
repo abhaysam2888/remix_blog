@@ -24,6 +24,10 @@ export const links = () => [
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
+  {
+    rel: 'stylesheet',
+    href: 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css',
+  },
 ]
 
 // Layout component for consistent structure
@@ -39,6 +43,8 @@ export function Layout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-7LPX1RTT5T"
         ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-javascript.min.js"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `

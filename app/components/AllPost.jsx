@@ -71,11 +71,11 @@ export default function AllPost({ posts, totalPosts, offset, postsPerPage }) {
                 <div key={item.$id}>
                   <div className="flex flex-col md:flex-row justify-between items-center max-md:border max-md:border-[#2f3e53]">
                     {/* Image */}
-                    <div className="w-full md:w-[390px] md:h-[220px] flex justify-center">
+                    <div className="w-full md:max-w-2xl space-y-4 px-4 py-5">
                       <img
                         src={item.imageUrl}
                         alt={item.title}
-                        className="w-full h-[220px] object-cover md:w-[390px] max-md:h-[320px]"
+                        className="w-full h-auto object-cover md:w-[390px] md:h-[220px] max-md:h-[320px]"
                         loading="lazy"
                       />
                     </div>

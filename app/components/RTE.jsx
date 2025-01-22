@@ -41,6 +41,7 @@ function RTE({ name, control, label, defaultValue = '' }) {
               height: 500,
               menubar: true,
               insertdatetime_dateformat: '%d-%m-%Y',
+              codesample_global_prismjs: true,
               codesample_languages: [
                 { text: 'HTML/XML', value: 'markup' },
                 { text: 'JavaScript', value: 'javascript' },
@@ -51,7 +52,7 @@ function RTE({ name, control, label, defaultValue = '' }) {
                 { text: 'Java', value: 'java' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
-                { text: 'C++', value: 'cpp' }
+                { text: 'C++', value: 'cpp' },
               ],
               plugins: [
                 'advlist',
@@ -76,7 +77,7 @@ function RTE({ name, control, label, defaultValue = '' }) {
                 'autosave',
                 'codesample',
                 'emoticons',
-                'insertdatetime'
+                'insertdatetime',
               ],
               toolbar:
                 'undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help | restoredraft | codesample | emoticons | insertdatetime',
