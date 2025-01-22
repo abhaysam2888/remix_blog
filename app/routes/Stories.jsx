@@ -118,7 +118,7 @@ export default function Stories() {
             {stories &&
               stories.map((item) => (
                 <div key={item.$id}>
-                  <div className=" border border-[#2f3e53] w-fit">
+                  <div className=" border border-[#2f3e53] w-[360px]">
                     {/* Image */}
                     <div className="w-[360px] h-[220px] max-[380px]:w-[290px]">
                       <img
