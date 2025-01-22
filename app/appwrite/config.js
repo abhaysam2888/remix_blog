@@ -244,12 +244,13 @@ export class Service {
     }
   }
 
-  async getUserAllStoriesPost(storyid) {
+  async getUserAllStoriesPost(storyid, query = []) {
     try {
+      const filters = [Query.equal('storyid', `${storyid}`), ...query];
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        [Query.equal('storyid', `${storyid}`)]
+        filters
       )
     } catch (error) {
       console.log('Appwrite serive :: getUserAllStoriesPost :: error', error)

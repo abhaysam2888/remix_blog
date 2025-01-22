@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import service from '../appwrite/config'
 import { json, useLoaderData } from '@remix-run/react'
 import parse from 'html-react-parser'
+import { Query } from 'appwrite'
 
 export const meta = ({ data }) => {
   const { storie } = data
@@ -68,7 +69,7 @@ export async function loader({ params }) {
     throw new Response('Story not found', { status: 404 })
   }
 
-  const storyPosts = await service.getUserAllStoriesPost(storie?.$id)
+  const storyPosts = await service.getUserAllStoriesPost(storie?.$id, [Query.equal('status', 'active')])
 
   if (!storyPosts) {
     throw new Response('Story posts not found', { status: 404 })
