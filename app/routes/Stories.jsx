@@ -147,7 +147,7 @@ export default function Stories() {
 
                       {/* Title */}
                       <div>
-                        <h2 className="text-xl font-semibold text-white truncate">
+                        <h2 className="text-xl font-semibold text-white line-clamp-3">
                           {item.title ||
                             'Title Lorem ipsum, dolor sit amet consectetur adipisicing elit.'}
                         </h2>
