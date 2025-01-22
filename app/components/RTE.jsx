@@ -40,6 +40,19 @@ function RTE({ name, control, label, defaultValue = '' }) {
             init={{
               height: 500,
               menubar: true,
+              insertdatetime_dateformat: '%d-%m-%Y',
+              codesample_languages: [
+                { text: 'HTML/XML', value: 'markup' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'CSS', value: 'css' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Python', value: 'python' },
+                { text: 'Java', value: 'java' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' }
+              ],
               plugins: [
                 'advlist',
                 'autolink',
@@ -57,9 +70,16 @@ function RTE({ name, control, label, defaultValue = '' }) {
                 'table',
                 'help',
                 'wordcount',
+                'linkchecker ',
+                'autolink ',
+                'link ',
+                'autosave',
+                'codesample',
+                'emoticons',
+                'insertdatetime'
               ],
               toolbar:
-                'undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                'undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help | restoredraft | codesample | emoticons | insertdatetime',
               content_style:
                 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px; }',
               mobile: {
@@ -81,9 +101,11 @@ function RTE({ name, control, label, defaultValue = '' }) {
                   'table',
                   'help',
                   'wordcount',
+                  'codesample',
+                  'emoticons',
                 ],
                 toolbar:
-                  'undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+                  'undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help | codesample | emoticons',
               },
             }}
             onEditorChange={onChange}
