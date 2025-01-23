@@ -16,16 +16,16 @@ export const meta = ({ data }) => {
       content: `Explore the insights and perspectives shared by ${article.username}. Stay informed and updated.`,
     },
     {
-      name: 'og:title',
+      property: 'og:title',
       content: article.title,
     },
     {
-      name: 'og:description',
+      property: 'og:description',
       content:
         "Discover detailed insights about React's ecosystem and its role in modern web development.",
     },
     {
-      name: 'og:image',
+      property: 'og:image',
       content: service.getFilePreviews(article.image),
     },
     {
