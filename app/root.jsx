@@ -11,6 +11,7 @@ import { store } from './store/store.js'
 import Small_Screen_Navbar from './components/Small_Screen_Navbar.jsx'
 import Full_Screen_Navbar from './components/Full_Screen_Navbar.jsx'
 import GetCurrentUser from './components/GetCurrentUser.jsx'
+import { DynamicLinks } from './components/DynamicLinks.jsx'
 
 // Define links for fonts and other assets
 export const links = () => [
@@ -39,6 +40,7 @@ export function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <DynamicLinks /> 
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-7LPX1RTT5T"

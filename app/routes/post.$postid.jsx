@@ -56,18 +56,33 @@ export const meta = ({ data }) => {
 // Loader function to fetch post data
 export async function loader({ params }) {
   const { postid } = params
-
+  console.log(postid);
+  
   if (!postid) {
     throw new Response('Id not found', { status: 404 })
   }
+  if (postid == 'favicon.ico') return;
+
   const article = await service.getPost(postid)
 
   if (!article) {
     throw new Response('article not found', { status: 404 })
   }
-
-  return json({ article })
+  return json({article})
 }
+
+// for dynamic links
+export const handle = {
+  dynamicLinks: ({ data }) => {
+    const {article} = data;
+    
+    if (!article) return [];
+
+    return [
+      { rel: "canonical", href:`https://www.rogblog.me/post/${article.$id}` },
+    ];
+  },
+};
 
 // Action function for deleting a post
 export default function Post() {
@@ -126,7 +141,7 @@ export default function Post() {
             {/* Buttons for Edit and Delete */}
             {isAuthor && (
               <div className="flex gap-2 sm:gap-4 flex-wrap">
-                <Link to={`/editPost/${article.$id}`}>
+                <Link prefetch='intent' to={`/editPost/${article.$id}`}>
                   <Button
                     bgColor="bg-green-500"
                     className="inline-flex animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#0000,55%,#000)] bg-[length:200%_100%] px-6 text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"

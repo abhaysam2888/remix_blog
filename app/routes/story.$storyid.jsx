@@ -7,6 +7,16 @@ import { Query } from 'appwrite'
 export const meta = ({ data }) => {
   const { storie } = data
 
+  if (!storie) {
+    return [
+      { title: `loading` },
+    {
+      name: 'description',
+      content: `Explore the insights and perspectives shared. Stay informed and updated.`,
+    },
+    ]
+  }
+
   return [
     { title: `${storie.title}` },
     {
@@ -46,7 +56,7 @@ export const meta = ({ data }) => {
     { name: 'robots', content: 'index,follow' },
     {
       rel: 'canonical',
-      href: `https://www.rogblog.me/post/${storie.$id}`,
+      href: `https://www.rogblog.me/story/${storie.$id}`,
     },
   ]
 }
@@ -78,9 +88,21 @@ export async function loader({ params }) {
   return json({ storie, storyPosts: storyPosts.documents })
 }
 
+// for dynamic links
+export const handle = {
+  dynamicLinks: ({ data }) => {
+    const {storie} = data;
+    if (!data) return [];
+
+    return [
+      { rel: "canonical", href:`https://www.rogblog.me/story/${storie.$id}` },
+    ];
+  },
+};
+
 export default function Story() {
   const { storie, storyPosts } = useLoaderData()
-  const [selectedPost, setSelectedPost] = useState(storyPosts[0])
+  const [selectedPost, setSelectedPost] = useState(storyPosts && storyPosts[0])
 
   // Automatically set the first post when the component mounts
   useEffect(() => {

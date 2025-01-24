@@ -21,6 +21,10 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/privacyPolicy' }]
+}
+
 export const loader = async () => {
   return json({
     companyName: 'rogBlog',

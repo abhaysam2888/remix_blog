@@ -36,6 +36,10 @@ export const meta = ({ data }) => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/aboutUs' }]
+}
+
 // Loader function to fetch data (if any dynamic content is needed later)
 export const loader = async () => {
   return json({

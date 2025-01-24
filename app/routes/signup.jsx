@@ -50,6 +50,10 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/signup' }]
+}
+
 export default function Signup() {
   const [formData, setFormData] = useState({
     firstname: '',

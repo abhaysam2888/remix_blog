@@ -30,6 +30,11 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/UserProfile' }]
+}
+
+
 export default function UserProfile() {
   // Simulating Redux user data
   const userData = useSelector((state) => state.auth.userCred)
@@ -249,7 +254,7 @@ export default function UserProfile() {
             Unleash your creativity and share your stories with the world. Click
             below to start writing!
           </p>
-          <Link to="/addStory">
+          <Link prefetch='render' to="/addStory">
             <button
               className="py-[10px] px-[20px] text-white border-none rounded-[5px] cursor-pointer bg-[#ff4500]"
               onClick={() => authService.updatePrefs()}

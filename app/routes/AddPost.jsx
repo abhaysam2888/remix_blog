@@ -33,6 +33,10 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/AddPost' }]
+}
+
 export default function AddPost({ post }) {
   const userData = useSelector((state) => state.auth.userCred)
   const { register, handleSubmit, setValue, control, getValues } = useForm({

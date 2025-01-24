@@ -35,6 +35,10 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/contactUs' }]
+}
+
 // Loader function to pass contact details dynamically (if needed later)
 export const loader = async () => {
   return json({

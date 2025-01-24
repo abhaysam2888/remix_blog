@@ -26,6 +26,10 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/addStory' }]
+}
+
 export default function CreateStory({ story }) {
   const [title, setTitle] = useState((story && story.title) || '')
   const [image, setImage] = useState(null)

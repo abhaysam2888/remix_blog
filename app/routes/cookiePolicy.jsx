@@ -27,6 +27,10 @@ export const meta = () => {
   ]
 }
 
+export const links = () => {
+  return [{ rel: 'canonical', href: 'https://www.rogblog.me/cookiePolicy' }]
+}
+
 // Loader function for SSR
 export const loader = async () => {
   return json({
