@@ -29,6 +29,11 @@ export const links = () => [
     rel: 'stylesheet',
     href: 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css',
   },
+  {
+    rel: 'icon',
+    type: "image/x-icon",
+    href: './favicon.ico',
+  },
 ]
 
 // Layout component for consistent structure
