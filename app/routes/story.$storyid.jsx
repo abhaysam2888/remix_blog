@@ -92,7 +92,7 @@ export async function loader({ params }) {
 export const handle = {
   dynamicLinks: ({ data }) => {
     const {storie} = data;
-    if (!data) return [];
+    if (!storie) return [];
 
     return [
       { rel: "canonical", href:`https://www.rogblog.me/story/${storie.$id}` },
