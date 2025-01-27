@@ -31,7 +31,7 @@ export const links = () => [
   },
   {
     rel: 'icon',
-    type: 'image/x-icon',
+    type: "image/x-icon",
     href: './favicon.ico',
   },
 ]
@@ -45,13 +45,14 @@ export function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <DynamicLinks />
+        <DynamicLinks /> 
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-7LPX1RTT5T"
         ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-javascript.min.js"></script>
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
