@@ -148,7 +148,11 @@ export default function ResetPassword() {
 
         <p className="text-center text-sm text-gray-400 mt-4">
           Remembered your password?{' '}
-          <Link prefetch='render' href="/login" className="text-indigo-400 hover:underline">
+          <Link
+            prefetch="render"
+            href="/login"
+            className="text-indigo-400 hover:underline"
+          >
             Log in here
           </Link>
           .

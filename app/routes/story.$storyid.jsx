@@ -10,10 +10,10 @@ export const meta = ({ data }) => {
   if (!storie) {
     return [
       { title: `loading` },
-    {
-      name: 'description',
-      content: `Explore the insights and perspectives shared. Stay informed and updated.`,
-    },
+      {
+        name: 'description',
+        content: `Explore the insights and perspectives shared. Stay informed and updated.`,
+      },
     ]
   }
 
@@ -79,7 +79,9 @@ export async function loader({ params }) {
     throw new Response('Story not found', { status: 404 })
   }
 
-  const storyPosts = await service.getUserAllStoriesPost(storie?.$id, [Query.equal('status', 'active')])
+  const storyPosts = await service.getUserAllStoriesPost(storie?.$id, [
+    Query.equal('status', 'active'),
+  ])
 
   if (!storyPosts) {
     throw new Response('Story posts not found', { status: 404 })
@@ -91,14 +93,14 @@ export async function loader({ params }) {
 // for dynamic links
 export const handle = {
   dynamicLinks: ({ data }) => {
-    const {storie} = data;
-    if (!storie) return [];
+    const { storie } = data
+    if (!storie) return []
 
     return [
-      { rel: "canonical", href:`https://www.rogblog.me/story/${storie.$id}` },
-    ];
+      { rel: 'canonical', href: `https://www.rogblog.me/story/${storie.$id}` },
+    ]
   },
-};
+}
 
 export default function Story() {
   const { storie, storyPosts } = useLoaderData()

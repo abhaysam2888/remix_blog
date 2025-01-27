@@ -246,7 +246,7 @@ export class Service {
 
   async getUserAllStoriesPost(storyid, query = []) {
     try {
-      const filters = [Query.equal('storyid', `${storyid}`), ...query];
+      const filters = [Query.equal('storyid', `${storyid}`), ...query]
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,

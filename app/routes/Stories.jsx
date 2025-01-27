@@ -159,7 +159,7 @@ export default function Stories() {
 
                       {/* Button */}
                       <div>
-                        <Link prefetch='intent' to={`/story/${item.$id}`}>
+                        <Link prefetch="intent" to={`/story/${item.$id}`}>
                           <Button className="inline-flex space-x-3 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#0000,55%,#000)] bg-[length:200%_100%] px-6 text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 rounded-lg">
                             <span>See Posts Inside</span>
                             <span>

@@ -30,7 +30,6 @@ export const links = () => {
   return [{ rel: 'canonical', href: 'https://www.rogblog.me/termsOfServices' }]
 }
 
-
 // Loader function to fetch dynamic data (if necessary)
 export const loader = async () => {
   return json({

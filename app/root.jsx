@@ -31,7 +31,7 @@ export const links = () => [
   },
   {
     rel: 'icon',
-    type: "image/x-icon",
+    type: 'image/x-icon',
     href: './favicon.ico',
   },
 ]
@@ -45,7 +45,7 @@ export function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <DynamicLinks /> 
+        <DynamicLinks />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-7LPX1RTT5T"

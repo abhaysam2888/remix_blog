@@ -20,8 +20,9 @@ export const meta = () => {
       title: `rogBlog - Discover Expert Blogging Articles and Resources`,
     },
     {
-      name:"keywords", 
-      content:"rogBlog, rogblog, blogging, coding challenges, personal experience, WordPress, content creation, SEO, blogging challenges, platform selection, writing style, technical difficulties, online content, digital publishing",
+      name: 'keywords',
+      content:
+        'rogBlog, rogblog, blogging, coding challenges, personal experience, WordPress, content creation, SEO, blogging challenges, platform selection, writing style, technical difficulties, online content, digital publishing',
     },
     {
       name: 'description',
