@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from '@remix-run/react'
-import authService from '../appwrite/auth'
-import { logout as authLogout } from '../store/authSlice'
 
 export const meta = () => {
   return [
@@ -13,21 +11,13 @@ export const meta = () => {
 
 export default function Small_Screen_Navbar() {
   const status = useSelector((state) => state.auth.status)
-  const dispatch = useDispatch()
   const [isBarOpen, setIsBarOpen] = useState(false)
-
-  const handelClick = async () => {
-    const logout = await authService.logout()
-    if (logout) {
-      dispatch(authLogout())
-    }
-  }
   return (
     <nav className="bg-white dark:bg-black sticky w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 mb-8">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center space-x-2 rtl:space-x-reverse">
           <Link to={'/'}>
-            <img src="./favicon.ico" className="h-10" alt="codecorner Logo" />
+            <img src="./favicon.ico" className="h-10" alt="rogblog.me Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-black">
               RogBlog
             </span>
