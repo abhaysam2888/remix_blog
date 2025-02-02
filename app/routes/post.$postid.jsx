@@ -56,7 +56,6 @@ export const meta = ({ data }) => {
 // Loader function to fetch post data
 export async function loader({ params }) {
   const { postid } = params
-  console.log(postid)
 
   if (!postid) {
     throw new Response('Id not found', { status: 404 })
