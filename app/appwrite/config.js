@@ -282,6 +282,23 @@ export class Service {
     }
   }
 
+  async updateViews(views, slug) {
+    try {
+      const popularity = views + 1;
+      return await this.databases.updateDocument(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        slug,
+        {
+          popularity 
+        }
+      )
+    } catch (error) {
+      console.log(`error in update views ${error}`)
+      return false
+    }
+  }
+
   getFilePreviews(fileId, height, width, quality) {
     try {
       return this.bucket.getFilePreview(
