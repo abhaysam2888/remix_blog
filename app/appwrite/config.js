@@ -282,20 +282,28 @@ export class Service {
     }
   }
 
-  async updateViews(views, slug) {
+  async updateViews(slug, { popularity }) {
     try {
-      const popularity = views + 1;
+      const views = popularity + 1;
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
         {
-          popularity 
+          views 
         }
       )
     } catch (error) {
       console.log(`error in update views ${error}`)
       return false
+    }
+  }
+
+  async updateLike(slug, { popularity }) {
+    try {
+      
+    } catch (error) {
+      
     }
   }
 

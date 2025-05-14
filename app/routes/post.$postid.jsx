@@ -5,6 +5,7 @@ import Button from '../components/Button'
 import TracingBeam from '../components/ui/tracing-beam'
 import parse from 'html-react-parser'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 export const meta = ({ data }) => {
   const { article } = data
@@ -60,7 +61,7 @@ export async function loader({ params }) {
   if (!postid) {
     throw new Response('Id not found', { status: 404 })
   }
-  
+
   if (postid == 'favicon.ico') return
 
   const article = await service.getPost(postid)
@@ -87,8 +88,22 @@ export const handle = {
 // Action function for deleting a post
 export default function Post() {
   const { article } = useLoaderData()
-
   const userData = useSelector((state) => state.auth.userCred)
+
+  // increment views
+  useEffect(() => {
+    const incrementViews = async() => {
+      if (article && userData) {
+        if (article.userid === userData.$id) return null;
+        const popularity = article.views;
+        return await service.updateViews(article.$id, {
+          popularity
+        });
+      }
+    }
+    incrementViews();
+  },[])
+
   const navigate = useNavigate()
 
   const delPost = async () => {
